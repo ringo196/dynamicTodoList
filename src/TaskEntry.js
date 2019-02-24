@@ -1,6 +1,8 @@
 import React from 'react';
 
 const TaskEntry =({ task }) => {
+
+  console.log('taskengry', task)
   return (
     <div className="TaskEntryContainer">
       <div className="imageContainer">
