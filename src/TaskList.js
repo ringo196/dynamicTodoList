@@ -8,7 +8,7 @@ const TaskList =({ taskList, page, taskGroupClickHandler }) => {
         <div onClick={taskGroupClickHandler}>All Groups</div>
         {taskList.filter((task) => task.group === page)
         .map( task => {
-          return <TaskEntry className="TaskEntry" task={ task } key={ task.id } />
+          return <TaskEntry taskList={ taskList } className="TaskEntry" task={ task } key={ task.id } />
       })}
     </div>
   )
