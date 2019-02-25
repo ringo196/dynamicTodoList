@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TaskList from './TaskList';
-import TaskGroupList from './TaskGroupList';
-import taskData from './data';
+import TaskList from './components/Tasks/TaskList';
+import TaskGroupList from './components/TaskGroups/TaskGroupList';
+import taskData from './sampleData/data';
 import './App.css';
 
 class App extends Component {
