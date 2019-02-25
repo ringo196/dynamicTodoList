@@ -4,7 +4,7 @@ let taskData = [
     group: "Purchases",
     task: "Go to the bank",
     dependencyIds: [],
-    completedAt: '01/01/2019',
+    completedAt: null,
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ let taskData = [
     group: "Build Airplane",
     task: "Have a snack",
     dependencyIds: [],
-    completedAt: '01/01/2019',
+    completedAt: null,
   }
 ]
 

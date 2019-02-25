@@ -6,7 +6,7 @@ const TaskGroupEntry =({ taskGroup, taskGroupClickHandler }) => {
       taskGroupClickHandler(taskGroup.tasks)}}>
       <div className="imageContainer">
         <img 
-          src={process.env.PUBLIC_URL + "group.svg"} 
+          src={process.env.PUBLIC_URL + "Group.svg"} 
           alt="This is arrow bullet point."
         />
       </div>

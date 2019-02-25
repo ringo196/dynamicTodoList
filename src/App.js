@@ -13,6 +13,7 @@ class App extends Component {
       taskGroups: [],
     }
     this.taskGroupClickHandler = this.taskGroupClickHandler.bind(this);
+    this.taskStatusClickHandler = this.taskStatusClickHandler.bind(this);
   }
 
   getTaskGroupsData() {
@@ -25,7 +26,7 @@ class App extends Component {
     let taskGroups = {};
     let groupList = [];
 
-    taskData.forEach( task => {
+    this.state.allTasks.forEach( task => {
       let name = task.group;
 
       if(!taskGroups[name]) {
@@ -56,13 +57,32 @@ class App extends Component {
     this.setState({taskGroups: groupList}, () => console.log('callback',this.state.taskGroups))
   } 
 
-  taskGroupClickHandler (tasks){
+  taskGroupClickHandler(tasks){
     if (this.state.page === 0) {
       this.setState({page: tasks[0].group}, () => console.log(this.state))  
     } else {
       this.setState({page: 0})
     }
     
+  }
+
+  taskStatusClickHandler(status, taskId){
+
+    let tempAllTasks = this.state.allTasks;
+
+    tempAllTasks.forEach( (task)=> {
+      if(task.id === taskId) {
+        if(!task.completedAt) {
+          task.completedAt = Date.now();
+          console.log(task.completedAt)
+        } else if (task.completedAt) {
+          task.completedAt = null;
+        }
+      }
+
+    })
+    this.setState({allTasks: tempAllTasks});
+
   }
 
   componentDidMount () {
@@ -74,14 +94,14 @@ class App extends Component {
     console.log('app ', this.state.taskGroups)
 
     if(this.state.page === 0) {
-      page = <TaskGroupList taskData={ taskData } 
+      page = <TaskGroupList taskList={ this.state.allTasks } 
         taskGroupClickHandler={this.taskGroupClickHandler} 
         taskGroups={ this.state.taskGroups }
       />
     }
 
     if(this.state.page !== 0) {
-      page = <TaskList page={ this.state.page } taskList={ taskData } taskGroupClickHandler={this.taskGroupClickHandler} />
+      page = <TaskList taskStatusClickHandler={this.taskStatusClickHandler} page={ this.state.page } taskList={ this.state.allTasks } taskGroupClickHandler={this.taskGroupClickHandler} />
     }
 
 
