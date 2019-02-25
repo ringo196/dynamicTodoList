@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TaskList from './TaskList';
-import TaskGroupList from './TaskGroupList';
+import TaskList from './TaskList/TaskList';
+import TaskGroupList from './TaskGroupList/TaskGroupList';
 import taskData from './data';
 import './App.css';
 

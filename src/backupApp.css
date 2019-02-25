@@ -1,0 +1,100 @@
+.App {
+	display: flex;
+	justify-content: center;
+	font-family: 'Arial';
+}
+.mainTitle {
+	font-size: 17pt;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	width: 355px;
+	padding-bottom: 20px;
+	padding-top: 60px;
+}
+
+.taskGroupEntryContainer{
+	display: flex;
+	height: 70px;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	align-items: center;
+}
+
+.taskImageContainer{
+	height: 21px;
+	width: 40px;
+}
+
+.groupImageContainer{
+	height: 21px;
+	width: 40px;
+	cursor: pointer;
+}
+
+.textContainer{
+	display: flex;
+	align-items: center;
+}
+
+.headingContainer {
+	display: flex;
+	font-size: 17pt;
+	width: 355px;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	padding-bottom: 20px;
+	padding-top: 60px;
+}
+.taskGroupNameText {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.taskGroupTextContainer{
+	cursor: pointer;
+}
+.taskGroupCompletionText {
+	color: #B0B0B0;
+	font-size: 9pt;
+}
+
+.taskEntryContainer {
+	display: flex;
+	height: 70px;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	align-items: center;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.allGroups {
+	font-size: 9pt;
+	color: cornflowerblue;
+	cursor: pointer;
+}
+
+.completed {
+	text-decoration: line-through;
+	display: flex;
+	cursor: pointer;
+
+}
+
+.incomplete {
+	display: flex;
+	cursor: pointer;
+
+}
+
+.locked {
+	color: #909090;
+	display: flex;
+
+}

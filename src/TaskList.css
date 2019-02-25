@@ -1,0 +1,12 @@
+.headingContainer {
+	display: flex;
+	font-size: 17pt;
+	width: 355px;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	padding-bottom: 20px;
+	padding-top: 60px;
+}

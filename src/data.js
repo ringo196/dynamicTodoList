@@ -1,4 +1,4 @@
-let taskData = [
+const taskData = [
   {
     id: 1,
     group: "Purchases",

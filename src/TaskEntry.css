@@ -1,0 +1,45 @@
+.taskEntryContainer {
+	display: flex;
+	height: 70px;
+	border-bottom-style: solid; 
+	border-bottom-width: 1px;
+	border-bottom-color: #F0F0F0;
+	align-items: center;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.allGroups {
+	font-size: 9pt;
+	color: cornflowerblue;
+	cursor: pointer;
+}
+
+.taskImageContainer{
+	height: 21px;
+	width: 40px;
+}
+
+.textContainer{
+	display: flex;
+	align-items: center;
+}
+
+.completed {
+	text-decoration: line-through;
+	display: flex;
+	cursor: pointer;
+
+}
+
+.incomplete {
+	display: flex;
+	cursor: pointer;
+
+}
+
+.locked {
+	color: #909090;
+	display: flex;
+
+}
