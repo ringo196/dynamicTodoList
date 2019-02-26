@@ -40,19 +40,21 @@ CREATE TABLE tasks (
     FOREIGN KEY (group_id) REFERENCES task_groups (id)
 );
 
--- This is where I'm handling the dependencies. You don't technically need
--- the id column here as a primary key if you're making sure that each combination
--- of task and it's dependency are unique (which we are handling), but I prefer
--- having the tables have each row have an id. What this table does is 
--- handles the many to many relationship where each task can have multiple
--- dependencies, and each dependency can possibly have multiple tasks dependent
--- on them.
+-- This is where I'm handling the dependencies. You don't need a separate id 
+-- column here as a primary key and we instead use a composite key out of the 
+-- task_id and the dependency_id. Each combination of task and it's dependency 
+-- are unique. This also makes sure that there are no potential duplicate task 
+-- and dependency relationships which could have some bad side effects if we 
+-- somehow added multiple rows with the same relationship, and tried to delete 
+-- those. What this table does is handles the many to many relationship where 
+-- each task can have multiple dependencies, and each dependency can possibly 
+-- have multiple tasks dependent on them.
 
 CREATE TABLE dependencies (
-    id SERIAL,
     task_id INTEGER NOT NULL,
     dependency_id INTEGER NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (task_id, dependency_id) REFERENCES tasks (id, id),
-    CONSTRAINT task_dependency_id UNIQUE (task_id, dependency_id)
+    PRIMARY KEY (task_id, dependency_id) REFERENCES tasks(id, id)
+    FOREIGN KEY (task_id) REFERENCES tasks (id),
+    FOREIGN KEY (dependency_id) REFERENCES tasks (id),
+
 );

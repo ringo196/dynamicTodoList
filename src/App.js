@@ -21,12 +21,6 @@ class App extends Component {
   }
 
   getTaskGroupsData () {
-    /*
-      This function would normally be an AJAX request to the server and database to
-    fetch whatever data is needed to generate the dynamic components, but since
-    we are only working on the frontend, I am using passed down dummy data and
-    filtering it to match the shape of the data that I need at this point.
-    */
     const taskGroups = {};
     const groupList = [];
     const { allTasks } = this.state;
@@ -73,9 +67,8 @@ class App extends Component {
 
   taskStatusClickHandler (status, taskId) {
     const { allTasks } = this.state;
-    const tempAllTasks = allTasks;
 
-    tempAllTasks.forEach((task) => {
+    const tempAllTasks = allTasks.map((task) => {
       if (task.id === taskId) {
         if (!task.completedAt) {
           task.completedAt = Date.now();
@@ -83,6 +76,7 @@ class App extends Component {
           task.completedAt = null;
         }
       }
+      return task;
     });
 
     this.setState({ allTasks: tempAllTasks });
