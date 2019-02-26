@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import './App.css';
 import TaskList from './components/Tasks/TaskList';
 import TaskGroupList from './components/TaskGroups/TaskGroupList';
 import taskData from './sampleData/data';
-import './App.css';
 
 class App extends Component {
   constructor (props) {
