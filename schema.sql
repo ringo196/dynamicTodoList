@@ -31,11 +31,11 @@ CREATE TABLE task_groups (
 -- unique as opposed to leaving it to the user to input unique strings.
 
 
-CREATE TABLE tasks (
+CREATE TABLE tasks(
     id SERIAL,
     group_id INTEGER NOT NULL,
     task VARCHAR(70) NOT NULL,
-		completedAt TIMESTAMP NULL,
+    completedAt TIMESTAMP NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (group_id) REFERENCES task_groups (id)
 );
@@ -50,11 +50,11 @@ CREATE TABLE tasks (
 -- each task can have multiple dependencies, and each dependency can possibly 
 -- have multiple tasks dependent on them.
 
+
 CREATE TABLE dependencies (
     task_id INTEGER NOT NULL,
     dependency_id INTEGER NOT NULL,
-    PRIMARY KEY (task_id, dependency_id) REFERENCES tasks(id, id)
+    PRIMARY KEY (task_id, dependency_id),
     FOREIGN KEY (task_id) REFERENCES tasks (id),
-    FOREIGN KEY (dependency_id) REFERENCES tasks (id),
-
+    FOREIGN KEY (dependency_id) REFERENCES tasks (id)
 );
