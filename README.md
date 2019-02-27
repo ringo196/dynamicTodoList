@@ -1,74 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Usage
 
 1. npm install
 
 2. npm start
 
-## Available Scripts
+## Api Documentation
 
-In the project directory, you can run:
+** Not implemented** 
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Checking and Unchecking of tasks:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+PATCH /tasks/1
 
-### `npm test`
+Request Payload:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Checking tasks: 
+	{
+		createdAt: timestamp
+	}
 
-### `npm run build`
+Unchecking tasks:
+	{
+		createdAt: null
+	}
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Response Payload:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Success: 2xx
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Error: 4xx, 5xx
 
-### `npm run eject`
+## Notes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+We do not actually need any data back from the database, but would require a success or
+failure status code. We can have a success callback to use the data we originally passed
+up to the API Call, and update our state to update our UI. We can have a failure callback
+to display an error message on the UI of a failure to update the database and log the 
+error in the server. Another option would be to simply not do anything on failure, as
+constantly having error messages pop up can get annoying, and having the app simply
+not display any changes is sufficient for the user to retry the checking/unchecking.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+One thing to note, given the current implementation is that since the data is stored in
+an array, if we want to update the array in state with the modified createdAt values, we would have
+to linearly iterate through the whole array, which is not a big deal for small data sets,
+but can be an issue if you had a large set of tasks. You could instead opt to store these
+as an Object (hash table) which would provide you constant time look up and updates in the
+app such as given in this example.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+{
+	1: 	{
+				id: 1,
+				group: "Purchases",
+				task: "Go to the bank",
+    		dependencyIds: [],
+				completedAt: null,
+			}
+	2: 	{
+    		id: 2,
+    		group: "Purchases",
+    		task: "Buy hammer",
+    		dependencyIds: [1],
+    		completedAt: null,
+  		},
+}
