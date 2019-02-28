@@ -8,7 +8,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      page: 0,
+      page: 'home',
       allTasks: taskData,
       taskGroups: []
     };
@@ -58,10 +58,10 @@ class App extends Component {
   taskGroupClickHandler (tasks) {
     const { page } = this.state;
 
-    if (page === 0) {
+    if (page === 'home') {
       this.setState({ page: tasks[0].group });
     } else {
-      this.setState({ page: 0 });
+      this.setState({ page: 'home' });
     }
   }
 
@@ -84,33 +84,28 @@ class App extends Component {
   }
 
   render () {
-    let main;
+    // let main;
     const { page, taskGroups, allTasks } = this.state;
-
-    if (page === 0) {
-      main = (
-        <TaskGroupList
-          taskList={allTasks}
-          taskGroupClickHandler={this.taskGroupClickHandler}
-          taskGroups={taskGroups}
-        />
-      );
-    }
-
-    if (page !== 0) {
-      main = (
-        <TaskList
-          taskStatusClickHandler={this.taskStatusClickHandler}
-          page={page}
-          taskList={allTasks}
-          taskGroupClickHandler={this.taskGroupClickHandler}
-        />
-      );
-    }
 
     return (
       <div className="App">
-        {main}
+        {
+          page === 'home'
+            ? (
+              <TaskGroupList
+                taskList={allTasks}
+                taskGroupClickHandler={this.taskGroupClickHandler}
+                taskGroups={taskGroups}
+              />
+            ) : (
+              <TaskList
+                taskStatusClickHandler={this.taskStatusClickHandler}
+                page={page}
+                taskList={allTasks}
+                taskGroupClickHandler={this.taskGroupClickHandler}
+              />
+            )
+        }
       </div>
     );
   }

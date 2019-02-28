@@ -49,18 +49,33 @@ as an Object (hash table) which would provide you constant time look up and upda
 app such as given in this example.
 
 {
+
 	1: 	{
+
 				id: 1,
+
 				group: "Purchases",
+
 				task: "Go to the bank",
+
     		dependencyIds: [],
+
 				completedAt: null,
-			}
+
+			},
+
 	2: 	{
+
     		id: 2,
+
     		group: "Purchases",
+
     		task: "Buy hammer",
+
     		dependencyIds: [1],
+
     		completedAt: null,
+
   		},
+  		
 }
