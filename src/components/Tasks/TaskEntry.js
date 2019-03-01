@@ -38,59 +38,28 @@ class TaskEntry extends Component {
   }
 
   render () {
+    const { status } = this.state;
+    const { taskStatusClickHandler, task } = this.props;
+
     return (
       <div className="taskEntryContainer">
         {
-          (() => {
-            const { status } = this.state;
-            const { taskStatusClickHandler, task } = this.props;
-
-            switch (status) {
-              case 'completed': return (
-                <div
-                  className="completed"
-                  role="presentation"
-                  onClick={(entryStatus, taskId) => {
-                    taskStatusClickHandler(entryStatus, task.id);
-                  }}
-                >
-                  <div className="taskImageContainer">
-                    <img src={`${process.env.PUBLIC_URL} Completed.svg`} alt="Completed icon." />
-                  </div>
-                  <div className="textContainer">
-                    <div className="taskName">{task.task}</div>
-                  </div>
-                </div>
-              );
-              case 'incomplete': return (
-                <div
-                  className="incomplete"
-                  role="presentation"
-                  onClick={(entryStatus, taskId) => {
-                    taskStatusClickHandler(entryStatus, task.id);
-                  }}
-                >
-                  <div className="taskImageContainer">
-                    <img src={`${process.env.PUBLIC_URL} Incomplete.svg`} alt="Incomplete icon." />
-                  </div>
-                  <div className="textContainer">
-                    <div className="taskName">{task.task}</div>
-                  </div>
-                </div>
-              );
-              case 'locked': return (
-                <div className="locked">
-                  <div className="taskImageContainer">
-                    <img src={`${process.env.PUBLIC_URL} Locked.svg`} alt="Locked icon." />
-                  </div>
-                  <div className="textContainer">
-                    <div className="taskName">{task.task}</div>
-                  </div>
-                </div>
-              );
-              default: return null;
-            }
-          })()
+          <div
+            className={status}
+            role="presentation"
+            onClick={(entryStatus, taskId) => {
+              if (status !== 'locked') {
+                taskStatusClickHandler(entryStatus, task.id);
+              }
+            }}
+          >
+            <div className="taskImageContainer">
+              <img src={`${process.env.PUBLIC_URL} ${status}.svg`} alt="Task status icon" />
+            </div>
+            <div className="textContainer">
+              <div className="taskName">{task.task}</div>
+            </div>
+          </div>
         }
       </div>
     );
