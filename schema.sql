@@ -15,7 +15,7 @@ CREATE TABLE tasks(
     id SERIAL,
     group_id INTEGER NOT NULL,
     task VARCHAR(70) NOT NULL,
-    completedAt TIMESTAMP NULL,
+    completed_at TIMESTAMP NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (group_id) REFERENCES task_groups (id)
 );
