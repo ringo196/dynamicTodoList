@@ -6,14 +6,14 @@
 
 ## Api Documentation
 
-** Not implemented** 
+** **Not implemented** **
 
 
-Checking and Unchecking of tasks:
+**Checking and Unchecking of tasks:**
 
 PATCH /tasks/:id
 
-Request Payload:
+**Request Payload:**
 
 Checking tasks: 
 	{
@@ -25,7 +25,7 @@ Unchecking tasks:
 		completedAt: null
 	}
 
-Response Payload:
+**Response Payload:**
 
 Success: 2xx
 
@@ -77,5 +77,5 @@ app such as given in this example.
     		completedAt: null,
 
   		},
-  		
+
 }
