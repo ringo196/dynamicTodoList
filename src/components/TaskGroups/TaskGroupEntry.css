@@ -1,4 +1,4 @@
-.Task-Group-Entry__container{
+.Task-Group-Entry__container {
 	display: flex;
 	height: 70px;
 	border-bottom-style: solid; 
@@ -7,13 +7,13 @@
 	align-items: center;
 }
 
-.Task-Group-Entry__image-container{
+.Task-Group-Entry__image-container {
 	height: 21px;
 	width: 40px;
 	cursor: pointer;
 }
 
-.Task-Group-Entry__text-container{
+.Task-Group-Entry__text-container {
 	cursor: pointer;
 }
 
