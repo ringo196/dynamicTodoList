@@ -1,4 +1,4 @@
-.taskGroupEntryContainer{
+.Task-Group-Entry__container{
 	display: flex;
 	height: 70px;
 	border-bottom-style: solid; 
@@ -7,22 +7,22 @@
 	align-items: center;
 }
 
-.groupImageContainer{
+.Task-Group-Entry__image-container{
 	height: 21px;
 	width: 40px;
 	cursor: pointer;
 }
 
-.taskGroupTextContainer{
+.Task-Group-Entry__text-container{
 	cursor: pointer;
 }
 
-.taskGroupNameText {
+.Task-Group-Entry__name-text {
 	font-size: 10pt;
 	font-weight: bold;
 }
 
-.taskGroupCompletionText {
+.Task-Group-Entry__completion-text {
 	color: #B0B0B0;
 	font-size: 9pt;
 }

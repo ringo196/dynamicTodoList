@@ -11,18 +11,18 @@
 
 Checking and Unchecking of tasks:
 
-PATCH /tasks/1
+PATCH /tasks/:id
 
 Request Payload:
 
 Checking tasks: 
 	{
-		createdAt: timestamp
+		completedAt: timestamp
 	}
 
 Unchecking tasks:
 	{
-		createdAt: null
+		completedAt: null
 	}
 
 Response Payload:

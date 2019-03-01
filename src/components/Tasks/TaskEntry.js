@@ -42,10 +42,10 @@ class TaskEntry extends Component {
     const { taskStatusClickHandler, task } = this.props;
 
     return (
-      <div className="taskEntryContainer">
+      <div className="Task-Entry__container">
         {
           <div
-            className={status}
+            className={`Task-Entry__div-${status}`}
             role="presentation"
             onClick={(entryStatus, taskId) => {
               if (status !== 'locked') {
@@ -53,11 +53,14 @@ class TaskEntry extends Component {
               }
             }}
           >
-            <div className="taskImageContainer">
-              <img src={`${process.env.PUBLIC_URL} ${status}.svg`} alt="Task status icon" />
+            <div className="Task-Entry__image-container">
+              <img
+                src={`${process.env.PUBLIC_URL} ${status}.svg`}
+                alt="Task status icon"
+              />
             </div>
-            <div className="textContainer">
-              <div className="taskName">{task.task}</div>
+            <div className="Task-Entry__text-container">
+              <div>{task.task}</div>
             </div>
           </div>
         }

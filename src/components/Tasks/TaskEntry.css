@@ -1,4 +1,4 @@
-.taskEntryContainer {
+.Task-Entry__container {
 	display: flex;
 	height: 70px;
 	border-bottom-style: solid; 
@@ -9,37 +9,28 @@
 	font-weight: bold;
 }
 
-.allGroups {
-	font-size: 9pt;
-	color: cornflowerblue;
-	cursor: pointer;
-}
-
-.taskImageContainer{
+.Task-Entry__image-container {
 	height: 21px;
 	width: 40px;
 }
 
-.textContainer{
+.Task-Entry__text-container {
 	display: flex;
 	align-items: center;
 }
 
-.completed {
+.Task-Entry__div-completed {
 	text-decoration: line-through;
 	display: flex;
 	cursor: pointer;
-
 }
 
-.incomplete {
+.Task-Entry__div-incomplete {
 	display: flex;
 	cursor: pointer;
-
 }
 
-.locked {
+.Task-Entry__div-locked {
 	color: #909090;
 	display: flex;
-
 }

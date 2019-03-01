@@ -4,21 +4,21 @@ import './TaskGroupEntry.css';
 
 const TaskGroupEntry = ({ taskGroup, taskGroupClickHandler }) => (
   <div
-    className="taskGroupEntryContainer"
+    className="Task-Group-Entry__container"
     role="presentation"
     onClick={() => {
       taskGroupClickHandler(taskGroup.tasks);
     }}
   >
-    <div className="groupImageContainer">
+    <div className="Task-Group-Entry__image-container">
       <img
         src={`${process.env.PUBLIC_URL} Group.svg`}
         alt="This is arrow bullet point."
       />
     </div>
-    <div className="taskGroupTextContainer">
-      <div className="taskGroupNameText">{ taskGroup.name }</div>
-      <div className="taskGroupCompletionText">{`${taskGroup.completed} OF ${taskGroup.totalTasks} TASKS COMPLETE`}</div>
+    <div className="Task-Group-Entry__text-container">
+      <div className="Task-Group-Entry__name-text">{ taskGroup.name }</div>
+      <div className="Task-Group-Entry__completion-text">{`${taskGroup.completed} OF ${taskGroup.totalTasks} TASKS COMPLETE`}</div>
     </div>
   </div>
 );

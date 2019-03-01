@@ -5,10 +5,10 @@ import './TaskList.css';
 
 const TaskList = ({ taskList, page, taskGroupClickHandler, taskStatusClickHandler }) => (
   <div>
-    <div className="headingContainer">
+    <div className="Task-List__heading-container">
       {page}
       <div
-        className="allGroups"
+        className="Task-List__all-groups-text"
         role="presentation"
         onClick={taskGroupClickHandler}
       >
@@ -17,7 +17,13 @@ const TaskList = ({ taskList, page, taskGroupClickHandler, taskStatusClickHandle
     </div>
     {taskList.filter(task => task.group === page)
       .map(task => (
-        <TaskEntry className="TaskEntry" taskList={taskList} task={task} key={task.id} taskStatusClickHandler={taskStatusClickHandler} />
+        <TaskEntry
+          className="TaskEntry"
+          taskList={taskList}
+          task={task}
+          key={task.id}
+          taskStatusClickHandler={taskStatusClickHandler}
+        />
       ))}
   </div>
 );
