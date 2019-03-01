@@ -31,7 +31,8 @@ class App extends Component {
       if (!taskGroups[name]) {
         taskGroups[name] = {
           name: task.group,
-          totalTasks: 1
+          totalTasks: 1,
+          tasks: []
         };
         if (task.completedAt) {
           taskGroups[name].completed = 1;
@@ -44,6 +45,7 @@ class App extends Component {
           taskGroups[name].completed += 1;
         }
       }
+      taskGroups[name].tasks.push(task);
     });
 
     Object.keys(taskGroups).forEach((key) => {

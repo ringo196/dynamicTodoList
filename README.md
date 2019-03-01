@@ -11,18 +11,18 @@
 
 **Checking and Unchecking of tasks:**
 
-PATCH /tasks/1
+PATCH /tasks/:id
 
 **Request Payload:**
 
 Checking tasks: 
 	{
-		createdAt: timestamp
+		completedAt: timestamp
 	}
 
 Unchecking tasks:
 	{
-		createdAt: null
+		completedAt: null
 	}
 
 **Response Payload:**
@@ -50,20 +50,32 @@ app such as given in this example.
 
 {
 
-  1:  {
-    	id: 1,			
-	group: "Purchases",			
-	task: "Go to the bank",			
-    	dependencyIds: [],
-        completedAt: null,			
-      },	
-      
-  2:  {
-    	id: 2,	
-    	group: "Purchases",	
-    	task: "Buy hammer",
-    	dependencyIds: [1],	
-    	completedAt: null,	
-      },
-		
+	1: 	{
+
+				id: 1,
+
+				group: "Purchases",
+
+				task: "Go to the bank",
+
+    		dependencyIds: [],
+
+				completedAt: null,
+
+			},
+
+	2: 	{
+
+    		id: 2,
+
+    		group: "Purchases",
+
+    		task: "Buy hammer",
+
+    		dependencyIds: [1],
+
+    		completedAt: null,
+
+  		},
+  		
 }

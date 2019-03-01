@@ -5,10 +5,9 @@ import './TaskGroupList.css';
 
 const TaskGroupList = ({ taskGroups, taskGroupClickHandler }) => (
   <div>
-    <div className="mainTitle">Things To Do</div>
+    <div className="Task-Group-List__heading">Things To Do</div>
     {taskGroups.map(taskGroup => (
       <TaskGroupEntry
-        className="TaskGroupEntry"
         taskGroup={taskGroup}
         key={taskGroup.name}
         taskGroupClickHandler={taskGroupClickHandler}
